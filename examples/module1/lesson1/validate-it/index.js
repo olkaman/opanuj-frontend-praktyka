@@ -1,33 +1,28 @@
+import { clearMessage, setMessage, setSpecialMessage } from './utils.js';
+import { rangeAndIfEvenValidation } from './validationRules.js';
+import { emptyMessage } from './constants.js';
+
 function validator() {
   const input = document.getElementById('input');
-  const button = document.getElementById('button');
-  const button2 = document.getElementById('button2');
-  const result = document.getElementById('result');
+  const validationButton = document.getElementById('validation');
+  const clearButton = document.getElementById('clearing');
 
-  button.addEventListener('click', () => {
-    if (input.value) {
-      if (Number.isInteger(input.value)) {
-        if (
-          Number(input.value) > 0 &&
-          Number(input.value) < 100 &&
-          Number(input.value) % 2 === 0
-        ) {
-          result.innerHTML = 'Valid';
-        } else {
-          result.innerHTML = 'Invalid';
-        }
-        result.innerHTML = 'Valid';
-      } else {
-        result.innerHTML = 'Invalid';
-      }
+  if (!validationButton || !input || !clearButton)
+    throw new Error('No element found!');
+
+  validationButton.addEventListener('click', () => {
+    const numberValue = Number(input.value);
+
+    if (input.value !== '') {
+      setMessage(rangeAndIfEvenValidation(numberValue, 0, 100));
     } else {
-      result.innerHTML = 'Invalid';
+      setSpecialMessage(emptyMessage);
     }
   });
 
-  button2.addEventListener('click', () => {
+  clearButton.addEventListener('click', () => {
     input.value = '';
-    result.innerHTML = '';
+    clearMessage();
   });
 }
 
