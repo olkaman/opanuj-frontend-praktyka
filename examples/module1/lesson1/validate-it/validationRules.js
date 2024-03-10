@@ -16,6 +16,6 @@ export const rangeAndIfEvenValidation = (validatedNumer, min, max) => {
     isHigher(validatedNumer, min),
     isEven(validatedNumer),
   ];
-  console.log(result.every((el) => el));
+
   return result.every((el) => el);
 };
