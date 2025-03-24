@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
-const API_URL = '/api/data/users?timeout=10000';
+const API_URL = '/api/data/users?timeout=2000';
 
 interface User {
   id: number;
