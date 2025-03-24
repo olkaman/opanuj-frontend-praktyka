@@ -16,7 +16,7 @@ function renderErrors(error: ZodError) {
 function cleanErrors() {
   errorContainer.innerHTML = '';
 }
-console.log('aaaaaabbbbb');
+console.log('aaaaaabbbbbcccc');
 function validateForm(values: FormValues) {
   try {
     FormSchema.parse(values);
